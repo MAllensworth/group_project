@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="{{url_for('static',filename='style.css')}}">
+<style>
+    .city_state{
+        display: flex;
+        justify-content: space-between;
+        align-items: end;
+    }
+    .f_l_names{
+        display: flex;
+        align-items: center;
+
+    }
+    #city_width{
+        width: 75%;
+    }
+    .page-header{
+        display: flex;
+        justify-content: space-between;
+        align-items: end;
+    }
+    #f_name_width, #l_name_width{
+        width: 50%;
+    }
+
+</style>
+    <title>Document</title>
+</head>
+<body>
+    <div class="container">
+            <div class="page-header">
+                <h1 class="text-primary">Pizza Time</h1>
+                <a href="/login">Already Have an Account? Login</a>
+            </div>
+        <div>
+            <div class="col-sm-12">
+                <form action="/register" method="post">
+                    <h1>Register</h1>
+                    {% with messages = get_flashed_messages(category_filter=['register']) %}
+                        {% if messages %}
+                            {% for message in messages %}
+                            <p style="color: RED;">**{{message}}**</p>
+                            {% endfor %}
+                        {% endif %}
+                    {% endwith %}    
+                    <div class="f_l_names">
+
+                        <div class="form-group" id="f_name_width">
+                            <label for="first_name">First Name:</label>
+                            <input type="text" class="form-control" name="first_name" id="focusedInput" placeholder="Enter First Name">
+                        </div>
+                        <div class="form-group" id="l_name_width">
+                            <label for="last_name">Last Name:</label>
+                            <input type="text" class="form-control" name="last_name" id="focusedInput" placeholder="Enter Last Name">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email:</label>
+                        <input type="email" class="form-control" name="email" id="focusedInput" placeholder="Enter Email">
+                    </div>
+                    <div class="form-group">
+                        <label for="address">Address:</label>
+                        <input type="text" class="form-control" name="address" id="focusedInput" placeholder="Enter Address">
+                    </div>
+                    <div class="city_state">
+                        <div class="form-group" id="city_width">
+                            <label for="city">City:</label>
+                            <input type="text" class="form-control" name="city" id="focusedInput" placeholder="Enter City">
+                        </div>
+                        <div class="form-group">
+                            <label for="state">State:</label>
+                            <select name="state" id="state">
+                                <option value="washington">WA</option>
+                            </select>                       
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="password">Password:</label>
+                        <input type="password" class="form-control" name="password" id="focusedInput" placeholder="Enter Password">
+                    </div>
+                    <div class="form-group">
+                        <label for="confirm_password">Confirm Password:</label>
+                        <input type="password" class="form-control" name="confirm_password" id="focusedInput" placeholder="Confirm Password">
+                    </div>
+                        <input type="submit" value="Register" class="btn btn-primary">
+                    
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
