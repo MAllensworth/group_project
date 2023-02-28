@@ -3,7 +3,7 @@ from flask_app import app
 from flask_app.models.user import User
 from flask_bcrypt import Bcrypt
 bcrypt = Bcrypt(app)
-from flask_app.models import workout
+# from flask_app.models import pizzas
 
 
 @app.route('/')
@@ -60,7 +60,7 @@ def edit_account(user_id):
     if 'user_id' not in session:
         return redirect('/')
     data = {
-        'user_id' : user_id
+        'id' : session['user_id']
     }
     return render_template('account_info.html', user = User.select_user(data))
 
