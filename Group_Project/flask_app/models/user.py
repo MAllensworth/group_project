@@ -61,7 +61,7 @@ class User:
 
     @classmethod
     def update(cls, data):
-        query = "UPDATE users set first_name = %(first_name)s, last_name = %(last_name)s, email = %(email)s, address = %(address)s, city = %(city)s, state = %(state)s WHERE id = %(user_id)s; "
+        query = "UPDATE users set first_name = %(first_name)s, last_name = %(last_name)s, email = %(email)s, address = %(address)s, city = %(city)s, state = %(state)s WHERE id = %(id)s; "
         return connectToMySQL('pizza_time').query_db(query, data)
 
     @classmethod

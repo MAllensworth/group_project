@@ -34,12 +34,19 @@
     <div class="container">
             <div class="page-header">
                 <h1 class="text-primary">Pizza Time</h1>
-                <a href="/register">Don't Have an Account? Register</a>
+                <a href="/create_an_account">Don't Have an Account? Register</a>
             </div>
         <div>
 <div class="col-sm-12">
     <form action="/login" method="post">
         <h1>Login</h1>
+        {% with messages = get_flashed_messages(category_filter=['login']) %}
+        {% if messages %}
+            {% for message in messages %}
+            <p style="color: RED;">**{{message}}**</p>
+            {% endfor %}
+        {% endif %}
+        {% endwith %}   
         <div class="form-group">
             <label for="email">Email:</label>
             <input type="email" class="form-control" name="email" id="email" placeholder="Enter Email">
