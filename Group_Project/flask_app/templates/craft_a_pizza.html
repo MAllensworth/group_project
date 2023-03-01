@@ -1,0 +1,124 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Pizza Pete's</title>
+    <!-- Link to Bootstrap CSS stylesheet -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+</head>
+<body>
+
+    <header class="d-flex justify-content-between align-items-center p-3">
+        <h1>Pizza Pete's</h1>
+        <nav>
+            <ul class="nav">
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Order</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Account</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Logout</a>
+                </li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="container mt-4">
+
+        <h2>Craft-A-Pizza</h2>
+
+        <form>
+            <div class="form-group">
+                <label for="methodSelect">Method:</label>
+                <select class="form-control" id="methodSelect" name="method">
+                    <option>Dine In</option>
+                    <option>Carry Out</option>
+                    <option>Delivery</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="sizeSelect">Size:</label>
+                <select class="form-control" id="sizeSelect" name="size">
+                    <option>Small</option>
+                    <option>Medium</option>
+                    <option>Large</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="crustSelect">Crust Type:</label>
+                <select class="form-control" id="crustSelect" name="crust">
+                    <option>Thin</option>
+                    <option>Hand Tossed</option>
+                    <option>Deep Dish</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="qtySelect">Qty:</label>
+                <select class="form-control" id="qtySelect" name="qty">
+                    <option>1</option>
+                    <option>2</option>
+                    <option>3</option>
+                    <option>4</option>
+                    <option>5</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label>Toppings:</label>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="toppings" id="pepperoniRadio" value="pepperoni">
+                    <label class="form-check-label" for="pepperoniRadio">
+                        Pepperoni
+                    </label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="toppings" id="mushroomRadio" value="mushroom">
+                    <label class="form-check-label" for="mushroomRadio">
+                        Mushroom
+                    </label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="toppings" id="sausageRadio" value="sausage">
+                    <label class="form-check-label" for="sausageRadio">
+                        Sausage
+                    </label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="toppings" id="baconRadio" value="bacon">
+                    <label class="form-check-label" for="baconRadio">
+                        Bacon
+                    </label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="toppings" id="pineappleRadio" value="pineapple">
+                    <label class="form-check-label" for="pineappleRadio">
+                        Pineapple
+                    </label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="toppings" id="cheeseRadio" value="cheese">
+                    <label class="form-check-label" for="cheeseRadio">
+                        Cheese
+                    </label>
+                </div>
+                <div class="row mt-4">
+                    <div class="col">
+                        <a href="#" class="btn btn-secondary mr-2">Start Over</a>
+                        <a href="#" class="btn btn-primary">Purchase</a>
+                    </div>
+                </div>
+        
+            </main>
+        
+            <!-- Link to Bootstrap JavaScript library -->
+            <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+            <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+        
+        </body>
+        </html> 
