@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="{{url_for('static',filename='style.css')}}">
+<style>
+    .city_state{
+        display: flex;
+        justify-content: space-between;
+        align-items: end;
+    }
+    .f_l_names{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+    }
+    #city_width{
+        width: 75%;
+    }
+    .page-header{
+        display: flex;
+        justify-content: space-between;
+        align-items: end;
+    }
+
+</style>
+    <title>Document</title>
+</head>
+<body>
+    <div class="container">
+            <div class="page-header">
+                <h1 class="text-primary">Pizza Time</h1>
+                <a href="/create_an_account">Don't Have an Account? Register</a>
+            </div>
+        <div>
+<div class="col-sm-12">
+    <form action="/login" method="post">
+        <h1>Login</h1>
+        <div class="form-group">
+            <label for="email">Email:</label>
+            <input type="email" class="form-control" name="email" id="email" placeholder="Enter Email">
+        </div>
+        <div class="form-group">
+            <label for="password">Password:</label>
+            <input type="password" class="form-control" name="password" id="password" placeholder="Enter Password">
+        </div>
+        <div class="checkbox">
+            <label for=""><input type="checkbox">Remember Me</label>
+        </div>
+        <input type="submit" value="Login" class="btn btn-primary">
+    </form>
+</div>
+</div>
+</div>
+</body>
+</html>
