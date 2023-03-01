@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="{{url_for('static',filename='style.css')}}">
+<style>
+    .page-header{
+        display: flex;
+        justify-content: space-between;
+        align-items: end;
+    }
+    #box1{
+        width: 200%;
+        padding: 20px;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        border: solid 3px black
+    }
+    #box2{
+        width: 30%;
+        margin-right: 7px;
+        padding: 2%;
+        padding-bottom: 100px;
+        display: flex;
+        align-items: start;
+        justify-content: left;
+        border: solid 2px black
+    }
+    .box3{
+        width: 30%;
+        margin-right: 7px;
+        padding: 2%;
+        padding-bottom: 100px;
+        display: flex;
+        align-items: start;
+        justify-content: left;
+        border: solid 2px black
+    }
+    #box4{
+        width: 30%;
+        margin-right: 7px;
+        padding: 2%;
+        padding-bottom: 100px;
+        display: flex;
+        align-items: start;
+        justify-content: left;
+        border: solid 2px black
+    }
+    .quickoptions{
+        display: flex;
+        /* align-items: center; */
+        justify-content: center;
+    }
+    .neworderbutton{
+        margin-top: 15%;
+        margin-left: 34%;
+    }
+    .reorderbutton{
+        margin-top: 5%;
+        margin-left: 22%;
+    }
+    .surprisemebutton{
+        margin-top: 5%;
+        margin-left: 29%;
+    }
+</style>
+    <title>Dashboard</title>
+</head>
+<body>
+    <div class="container">
+            <div class="page-header">
+                <h1 class="text-primary">Pizza Time</h1>
+                <div>
+                    <a href="">Home</a>
+                    <a href="">Order</a>
+                    <a href="/my_account/{{user.id}}">Account</a>
+                    <a href="/">Logout</a>
+                </div>
+            </div>
+            <h2 class="quickoptions">Quick Options</h2>
+        <div>
+            <div class="col-sm-6">
+                <div id="box1">
+                    <div id="box2">
+                        <div class="neworder">
+                            <p>Order a pizza that you have never tried before!</p>
+                            <p>We got the freshest ingredients in town,</p>
+                            <p>Customize your pizza however you like it!</p>
+                            <div class="neworderbutton">
+                                <a href="#" class="neworderbutton1">New Order</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="box3">
+                        <div>
+                            <p>Re-order a pizza that you tried before with just a click of a button!</p>
+                            <p>Sometimes eating a pizza is not just for the hunger, but the memory as well!</p>
+                            <p>Don't wait! Re-order your FAVE now!</p>
+                            <div class="reorderbutton">
+                                <a href="#" class="reorderbutton1">Re-Order My FAVE</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="box4">
+                        <div>
+                            <p>Hungry for a pizza but have no idea what you would like on the pizza?</p>
+                            <p>Let us do all the work, and you can just sit back and enjoy!</p>
+                            <p>We will do everything we can to bring you a good surprise!</p>
+                            <div class="surprisemebutton">
+                                <a href="#" class="surprisemebutton1">Surprise Me</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+</body>
+</html>
