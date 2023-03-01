@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="{{url_for('static',filename='style.css')}}">
+<style>
+    .city_state{
+        display: flex;
+        justify-content: space-between;
+        align-items: end;
+    }
+    .f_l_names{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+    }
+    #city_width{
+        width: 75%;
+    }
+    .page-header{
+        display: flex;
+        justify-content: space-between;
+        align-items: end;
+    }
+    .left-order{
+        display: flex;
+        justify-content: space-between;
+
+    }
+
+    .past_orders{
+        border-bottom: 2px solid lightgray;
+    }
+
+</style>
+    <title>Document</title>
+</head>
+<body>
+    <div class="container">
+            <div class="page-header">
+                <h1 class="text-primary">Pizza Time</h1>
+                <div>
+                    <a href="">Home</a>
+                    <a href="">Order</a>
+                    <a href="/my_account/{{user.id}}">Account</a>
+                    <a href="/">Logout</a>
+                </div>
+            </div>
+        <div>
+            <div class="col-sm-6">
+                <form action="/my_account/process/{{user.id}}" method="post">
+                    <h1>Account Info</h1>
+                    {% with messages = get_flashed_messages(category_filter=['register']) %}
+                        {% if messages %}
+                            {% for message in messages %}
+                            <p style="color: RED;">**{{message}}**</p>
+                            {% endfor %}
+                        {% endif %}
+                    {% endwith %}    
+                    <div class="form-group">
+                            <label for="first_name">First Name:</label>
+                            <input type="text" class="form-control" name="first_name" id="focusedInput" value="">
+                    </div>
+                    <div class="form-group">
+                            <label for="last_name">Last Name:</label>
+                            <input type="text" class="form-control" name="last_name" id="focusedInput" value="">
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email:</label>
+                        <input type="email" class="form-control" name="email" id="focusedInput" value="">
+                    </div>
+                    <div class="form-group">
+                        <label for="address">Address:</label>
+                        <input type="text" class="form-control" name="address" id="focusedInput" value="">
+                    </div>
+                    <div class="city_state">
+                        <div class="form-group" id="city_width">
+                            <label for="city">City:</label>
+                            <input type="text" class="form-control" name="city" id="focusedInput" value="">
+                        </div>
+                        <div class="form-group">
+                            <label for="state">State:</label>
+                            <select name="state" id="state">
+                                <option value="">WA</option>
+                            </select>                       
+                        </div>
+                    </div>
+                        <input type="submit" value="Update" class="btn btn-primary">
+                </form>
+            </div>
+            <div class="col-sm-6">
+                <h1>Past Orders</h1>
+                <div class="past_orders">
+                    <div class="left-order">
+                        <p>4/1/2019</p>
+                        <div class="form-check-inline">
+                            <input type="checkbox" name="favorite" id="favorite_yes" value="1" class="form-check-input">  
+                            <label for="favorite_yes" class="form-label">Favorite</label>                      
+                        </div>
+                    </div>
+                    <div>
+                        <p>Large - Pinapple, Onion $19.99</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
