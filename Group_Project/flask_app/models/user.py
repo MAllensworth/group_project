@@ -24,7 +24,7 @@ class User:
             
         query = "SELECT * FROM users;"
 
-        results = connectToMySQL('pizza_time').query_db(query)
+        results = connectToMySQL('Pizza_Time').query_db(query)
 
         users = []
 
@@ -35,12 +35,12 @@ class User:
     @classmethod
     def save(cls, data):
         query = "INSERT INTO users (first_name, last_name, email, address, city, state, password) VALUES (%(first_name)s, %(last_name)s, %(email)s, %(address)s, %(city)s, %(state)s, %(password)s);"
-        return connectToMySQL('pizza_time').query_db(query, data)
+        return connectToMySQL('Pizza_Time').query_db(query, data)
     
     @classmethod
     def get_by_email(cls, data):
         query = "SELECT * FROM users WHERE email = %(email)s;"
-        results = connectToMySQL('pizza_time').query_db(query,data)
+        results = connectToMySQL('Pizza_Time').query_db(query,data)
         if len(results) < 1:
             return False
         return cls(results[0])
@@ -50,7 +50,7 @@ class User:
         query = "SELECT * FROM users WHERE id = %(id)s;"
     
 
-        result = connectToMySQL('pizza_time').query_db(query, data)
+        result = connectToMySQL('Pizza_Time').query_db(query, data)
         print(result)
         if result:
             user = result[0]
@@ -62,19 +62,19 @@ class User:
     @classmethod
     def update(cls, data):
         query = "UPDATE users set first_name = %(first_name)s, last_name = %(last_name)s, email = %(email)s, address = %(address)s, city = %(city)s, state = %(state)s WHERE id = %(user_id)s; "
-        return connectToMySQL('pizza_time').query_db(query, data)
+        return connectToMySQL('Pizza_Time').query_db(query, data)
 
     @classmethod
     def remove(cls, data):
         query = "DELETE FROM users WHERE id = %(user_id)s;"
-        return connectToMySQL('pizza_time').query_db(query, data)
+        return connectToMySQL('Pizza_Time').query_db(query, data)
 
 
     @staticmethod
     def validate_register(user):
         is_valid = True
         query = "SELECT * FROM users WHERE email = %(email)s;"
-        results = connectToMySQL('pizza_time').query_db(query, user)
+        results = connectToMySQL('Pizza_Time').query_db(query, user)
         if len(results) >= 1:
             flash("Email Already Taken", "register")
             is_valid = False
@@ -114,7 +114,7 @@ class User:
     def validate_account_update(user):
         is_valid = True
         query = "SELECT * FROM users WHERE email = %(email)s;"
-        results = connectToMySQL('pizza_time').query_db(query, user)
+        results = connectToMySQL('Pizza_Time').query_db(query, user)
         if len(results) >= 1:
             flash("Email Already Taken")
             is_valid = False

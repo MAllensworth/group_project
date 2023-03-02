@@ -3,7 +3,6 @@ from flask_app import app
 from flask_app.models.user import User
 from flask_bcrypt import Bcrypt
 bcrypt = Bcrypt(app)
-from flask_app.models import workout
 
 
 @app.route('/')
@@ -42,6 +41,7 @@ def login():
         flash("Invalid Password", "login")
         return redirect('/')
     session['user_id'] = user.id
+    print("user_id stored in session:", session['user_id'])
     return redirect('/dashboard')
 
 
@@ -85,3 +85,12 @@ def update_account_info(user_id):
 def logout():
     session.clear()
     return redirect('/')
+
+@app.route('/my_account/info')
+def account_info():
+    if 'user_id' not in session:
+        return redirect('/')
+    data = {
+        'id': session['user_id']
+    }
+    return render_template("account_info.html", user=User.select_user(data))

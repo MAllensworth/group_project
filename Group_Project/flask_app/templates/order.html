@@ -13,59 +13,69 @@
         <nav>
             <ul class="nav">
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Home</a>
+                    <a class="nav-link" href="/dashboard">Home</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Order</a>
+                    <a class="nav-link" href="/orders/view">Order</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Account</a>
+                    <a class="nav-link" href="my_account/info">Account</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Logout</a>
+                    <a class="nav-link" href="/logout">Logout</a>
                 </li>
             </ul>
         </nav>
     </header>
 
-    <main class="container mt-4">
-
-        <div class="row">
+        <main class="container mt-4">
+            <div class="row">
             <div class="col">
                 <h2>Your Order</h2>
                 <table class="table table-striped">
-                    <thead>
-                        <tr>
-                            <th>Method</th>
-                            <th>Qty</th>
-                            <th>Size</th>
-                            <th>Crust Type</th>
-                            <th>Toppings</th>
-                            <th>Total</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <!-- Input from form will go here -->
-                    </tbody>
+                <thead>
+                    <tr>
+                    <th>Method</th>
+                    <th>Qty</th>
+                    <th>Size</th>
+                    <th>Crust Type</th>
+                    <th>Toppings</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for order in orders %}
+                    <tr>
+                        <td>{{ order.method }}</td>
+                        <td>{{ order.qty }}</td>
+                        <td>{{ order.size }}</td>
+                        <td>{{ order.crust }}</td>
+                        <td>{{ order.toppings }}</td>
+                        <td><a href="/orders/{{ order.id }}/delete">Delete</a></td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
                 </table>
             </div>
-        </div>
-
-        <div class="row mt-4">
-            <div class="col">
-                <a href="#" class="btn btn-secondary mr-2">Start Over</a>
-                <a href="#" class="btn btn-primary">Purchase</a>
             </div>
-        </div>
-
-    </main>
+        
+            <div class="row mt-4">
+            <div class="col">
+                <a href="/orders/form" class="btn btn-secondary mr-2">Start Over</a>
+                <a href="/dashboard" class="btn btn-primary">Purchase</a>
+            </div>
+            </div>
+        
+        </main>
+        
 
     <!-- Link to Bootstrap JavaScript library -->
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
 
+    
+
 </body>
-</html>
+</html> 
 
 
