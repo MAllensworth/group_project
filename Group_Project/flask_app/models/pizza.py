@@ -19,3 +19,11 @@ class Pizza:
         connectToMySQL('pizza_time').query_db(query, (method, qty, size, crust, ', '.join(toppings)))
 
         return cls(method, qty, size, crust, toppings)
+    
+    @classmethod
+    def get_by_id(cls, id):
+        query = 'SELECT * FROM pizzas WHERE id = %s'
+        result = connectToMySQL.query_db(query, (id,), one=True)
+        toppings = result['toppings'].split(', ')
+
+        return cls(result['id'], result['method'], result['qty'], result['size'], result['crust'], toppings)
